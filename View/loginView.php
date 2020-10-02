@@ -1,5 +1,5 @@
 <div class="container">
-                <form action="<?=$route?>profil" method="post">
+                <form action="/verifProfil" method="post">
                     <div class="form-group">
                         <label for="pseudo">Pseudo</label>
                         <input type="text" class="form-control" name="pseudo" id="pseudo">

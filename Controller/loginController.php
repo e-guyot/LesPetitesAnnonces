@@ -1,6 +1,5 @@
   
 <?php
-require_once (__DIR__ . '/../Model/UserModel.php');
 
 if (PHP_SESSION_NONE === session_status()) {
 	require_once(__DIR__ . '/../View/loginView.php');

@@ -2,36 +2,28 @@
 require_once (__DIR__ . '/../Model/UserModel.php');
 
 if (PHP_SESSION_NONE === session_status()) {
-	header('Location: /login');
+    header('Location: /login');
 } 
 
-if ('POST' === $_SERVER['REQUEST_METHOD']) {
-    if (isset($_POST['verif_password']) && insertUser($_POST)){
-        $username = $_POST['name'];
-        $email = $_POST['email'];
-        $_SESSION['user'] = ['id' => getUserId($username)['id'], 'name' => $username, 'email' => $email];
-        $_SESSION['connected'] = true;
-    } else {
-        startSession();
-    }
-}
-       
-require_once (__DIR__ . '/../View/profilView.php');
 
-function startSession(){
-    if ('POST' === $_SERVER['REQUEST_METHOD']) {
-        $users = getAllUser();
-        foreach ($users as $key => $user) {
-            $username = sanitize($_POST['pseudo']);
-            $password = sanitize($_POST['password']);
-            if ($user['name'] === $username && password_verify($password, $user['password'])) {
-                return $_SESSION['user'] = ['id' => getUserId($username)['id'], 'name' => $username, 'email' => $user['email']];       
-            }
+if ('POST' === $_SERVER['REQUEST_METHOD']) {
+    if ($_POST['mdpActuel'] !== ''){
+        $user = getUserById($_SESSION['user']['id']);
+        var_dump($_POST);
+        if (password_verify($_POST['mdpActuel'],$user['password']) && $_POST['MdpNew'] === $_POST['MdpNew2'] && updateMdp($_POST)){
+            echo '<div class="alert alert-success" role="alert">Enregistrement du mot de passe effectuer</div>';
+        } else {
+            echo '<div class="alert alert-danger" role="alert">Echec de l\'enregistrement du mot de passe</div>';
         }
     }
+    if (updateUser($_POST)){ 
+        $_SESSION['user'] = ['id' => $_SESSION['user']['id'], 'name' => $_POST['name'], 'email' => $_POST['email'], 'tel' => $_POST['tel']];
+        echo '<div class="alert alert-success" role="alert">Enregistrement effectuer</div>';
+    } else {
+        echo '<div class="alert alert-danger" role="alert">Echec de l\'enregistrement</div>';
+    }
 }
 
-function sanitize(string $input): string {
-    $input = trim($input);
-    return htmlspecialchars($input);
-}
+
+
+require_once (__DIR__ . '/../View/profilView.php');

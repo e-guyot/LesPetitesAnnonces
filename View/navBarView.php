@@ -10,7 +10,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-        <?php if (!isset($_SESSION['connected'])):?>
+        <?php if (!isset($_SESSION['user'])):?>
             <li class="nav-item active">
                 <a class="nav-link active" href="login">Login</a>
             </li>
@@ -21,9 +21,12 @@
         <li class="nav-item">
             <a class="nav-link" href="annonces">Les Annonces</a>
         </li>
-        <?php if (isset($_SESSION['connected'])):?>
+        <?php if (isset($_SESSION['user'])):?>
             <li class="nav-item">
                 <a class="nav-link" href="creerAnnonce">Créer une Annonce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="mesAnnonces">Mes Annonces</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="profil">Mon profil</a>

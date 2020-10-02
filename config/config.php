@@ -2,7 +2,7 @@
 <?php
 const DATABASE_CONFIG = [
     'host' => 'localhost',
-    'database' => 'annonces',
+    'database' => 'petitesannonces',
     'user' => 'root',
     'password' => ''
 ];

@@ -1,6 +1,6 @@
 
   <h1>S'inscrire</h1>
-  <form action="<?=$route?>profil" method="POST">
+  <form action="<?=$route?>verifProfil" method="POST">
    <a>Login : <input type="text" name="name"></a>
    <a>Email : <input type="email" name="email"></a>
    <a>Tel : <input type="tel" name="tel"></a>
