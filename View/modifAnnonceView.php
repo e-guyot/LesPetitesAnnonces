@@ -1,7 +1,7 @@
 <h1> Modifier son Annonce n° <?=$_GET['id'] ?></h1>
 
 <div class="container">
-    <form action="/modifAnnonce?id=<?= $_GET['id'] ?>" method="post">
+    <form action="modifAnnonce?id=<?= $_GET['id'] ?>" method="post">
 
         <div class="form-group">
             <label for="exampleInputEmail1">titre :</label>

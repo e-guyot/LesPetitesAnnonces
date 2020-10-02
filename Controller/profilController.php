@@ -2,7 +2,7 @@
 require_once (__DIR__ . '/../Model/UserModel.php');
 
 if (PHP_SESSION_NONE === session_status()) {
-    header('Location: /login');
+    header('Location: login');
 } 
 
 

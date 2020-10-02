@@ -1,7 +1,7 @@
 <h1> Créer une annonce </h1>
 
 <div class="container">
-<form action="/creerAnnonce" method="post">
+<form action="creerAnnonce" method="post">
 
 <div class="form-group">
     <label for="exampleInputEmail1">Titre :</label>

@@ -1,7 +1,7 @@
 <h1> Modifier son profil </h1>
 
 <div class="container">
-<form action="/profil" method="post">
+<form action="profil" method="post">
 
 <div class="form-group">
     <label for="exampleInputEmail1">Nom :</label>
