@@ -32,9 +32,13 @@ switch ($_SERVER['REQUEST_URI']) {
 		require_once(__DIR__ . '/View/navBarView.php');
 		require_once(__DIR__ . '/Controller/annoncesController.php');
 	break;
-	case '/annonce':
+	case '/annonce?id=2':
 		require_once(__DIR__ . '/View/navBarView.php');
-		require_once(__DIR__ . '/Controller/creerAnnonceController.php');
+		require_once(__DIR__ . '/Controller/annonceController.php');
+	break;
+	case '/modifAnnonce?id=1':
+		require_once(__DIR__ . '/View/navBarView.php');
+		require_once(__DIR__ . '/Controller/modifAnnonceController.php');
 	break;
 	case '/creerAnnonce':
 		require_once(__DIR__ . '/View/navBarView.php');

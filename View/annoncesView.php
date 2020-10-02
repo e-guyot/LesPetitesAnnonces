@@ -12,8 +12,7 @@
             <a href="/modifAnnonce?id=<?=$annonce['id']?>">Modifier</a>
         <?php else:?>
             <h2><?= $annonce['titre']?></h2>
-            <p><?= $annonce['prix']?></p>
-            <p><?= $annonce['id_user']?></p>
+            <p>Prix : <?= $annonce['prix']?></p>
             <a href="/annonce?id=<?=$annonce['id']?>">Voir les détails</a>
             <a href="/contactAnnonce?id=<?=$annonce['id']?>&id_user=<?=$annonce['id_user']?>">Contacter le créateur</a>
         <?php endif;?>

@@ -16,7 +16,7 @@ function getAllMesAnnonces(){
     $query = "SELECT * FROM annonces WHERE id_user = :id_user";
     $statement = $db->prepare($query);
     $statement->execute(array('id_user' => $_SESSION['user']['id']));
-    $results = $statement->fetch(PDO::FETCH_ASSOC);
+    $results = $statement->fetchAll();
     $statement->closeCursor();
 
     return $results;
@@ -39,4 +39,14 @@ function insertAnnonce($tab){
 
     return $statement;
 
+}
+
+function updateAnnonce($tab){
+    $db = connect();
+    $query = "UPDATE annonces SET titre = :titre, contenu = :contenu, prix = :prix WHERE id = :annonceId ";
+    $statement = $db->prepare($query);
+    $statement->execute(array('annonceId' => $tab['id_annonce'], 'titre' => $tab['titre'], 'contenu' => $tab['contenu'], 'prix' => $tab['prix']));
+    $statement->closeCursor();
+
+    return $statement;
 }
