@@ -17,6 +17,24 @@ unlink($zipname);
 $zip = new ZipArchive();
 $zip->open($zipname, ZipArchive::CREATE);
 
+// $file = fopen("fichier.csv", "a");
+// $tabAnnonces = getAllAnnonces();
+// fwrite($file,"Mon texte");
+// fclose($file);
+
+$lines = getAllAnnonces();; 
+          $patternReturn = '[\r\n]+([^;])';
+        echo 'name;prix;contenu;id_user';
+        foreach ($lines as $line) {
+            echo implode(';', $line) . "\r\n";
+        }
+        
+        $fileName = 'export.csv';
+        
+        header('Content-Type: text/csv;');
+        header('Content-Disposition: attachment; filename=' . $fileName);
+
+
 // Add files
 foreach ($files as $file) {
 if (file_exists($dir.DIRECTORY_SEPARATOR.$file)) {
