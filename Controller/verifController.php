@@ -2,7 +2,7 @@
 require_once (__DIR__ . '/../Model/UserModel.php');
 
 if (PHP_SESSION_NONE === session_status()) {
-	header('Location: /login');
+	header('Location: login');
 } 
 
 if ('POST' === $_SERVER['REQUEST_METHOD']) {
@@ -21,7 +21,7 @@ if ('POST' === $_SERVER['REQUEST_METHOD']) {
     } else {
         startSession();
     }
-header ('Location: /profil');
+header ('Location: profil');
 }
        
 

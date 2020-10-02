@@ -2,14 +2,14 @@
 
 session_start();
 
-$route = '';
+$route = '/';
 
 $requestedPage = '/';
 if (isset($_SERVER['REQUEST_URI'])) {
-	$requestedPage = preg_match("/\/([a-z0-9_-]*[\/]?)$/", $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], $match);
+	$requestedPage = preg_match("/\/([a-zA-Z0-9_-]*[\/]?)$/", $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'], $match);
 }
 
-switch ($_SERVER['REQUEST_URI']) {
+switch ($match[0]) {
 	case '/':
 		require_once(__DIR__ . '/View/navBarView.php');
 	break;
